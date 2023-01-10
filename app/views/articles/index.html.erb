@@ -1,0 +1,15 @@
+<h1 style="color:darkblue;">All Articles</h1>
+<p style="color: orangered;">Publish your passions, your way </p>
+<p style="color: orangered;">Create a unique and beautiful blog easily.</p>
+<table>
+  <tr>
+    <th>Title</th>
+  </tr>
+ 
+  <% @articles.each do |article| %>
+    <tr>
+      <td><%= article.title %></td>   
+      <td><%= link_to 'Show', article_path(article) %></td>
+    </tr>
+  <% end %>
+</table>
