@@ -1,17 +1,22 @@
 <h1 style="color:darkblue;">All Articles</h1>
    
 <p style="color: orangered;">Create a unique and beautiful blog easily.</p>
-<%= link_to 'Create Your Blog' , new_article_path %><br>
+  <%= form_tag "/article", method: "GET" do %>
+  <%= label_tag :search_by_title %>
+  <%= text_field_tag :search_by_title, params[:search_by_title] %> 
+  <%= submit_tag "Search" %>
+  <% end %>
+  <%= link_to 'Create Your Blog' , new_article_path %><br>
+
 <table>
   <tr><br>
     <th>Title</th>
   </tr>
- 
-  <% @articles.each do |article| %>
+   <% @articles.each do |article| %>
     <tr>
       <td><%= article.title %></td>   
       <td><%= link_to 'Show', article_path(article) %></td>
-       <td><%= link_to 'edit', edit_article_path(article) %></td>
+      <td><%= link_to 'edit', edit_article_path(article) %></td>
       <td><%= button_to 'Delete', article_path(article),method: :delete,data: { confirm:'Are you sure' } %></td>
     </tr>
   <% end %>

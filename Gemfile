@@ -45,7 +45,7 @@ gem 'pry'
 # Use Sass to process CSS
 # gem "sassc-rails"
 gem 'nokogiri'
-gem 'devise'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
  # gem "image_processing", "~> 1.2"
 
@@ -64,6 +64,9 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
+  gem 'bcrypt'
+  gem 'bootstrap-sass'
+
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
