@@ -1,31 +1,38 @@
 <h1>“Start each day with a positive thought and a grateful heart.”</h1>
   <%= form_with model: @article do |form| %>
 
-  	<div>
-  		<%= form.label :title %><br>
+  <div>
+  	<%= form.label :title %><br>
 		<%= form.text_field :title %>
-  	</div>
+  </div>
 
-  	<div>
-  		<%= form.label :Decription %><br>
+  <div>
+  	<%= form.label :Decription %><br>
 		<%= form.text_field :description %>
-  	</div>
+  </div>
 
 	<div>
-  		<%= form.label :Date %><br>
+  	<%= form.label :Date %><br>
 		<%= form.text_field :date %>
   	</div>
 
 	<div>
-  		<%= form.label :Day %><br>
+  	<%= form.label :Day %><br>
 		<%= form.text_field :day %>
   	</div><br>
-
 	
+  <div>
+  	<%= form.label :image %><br>
+		<%= form.file_field :image %>
+  </div><br>
 
 	<div>
-  		<%= form.submit %><br>
-  	</div>
+  	<%= form.submit %><br>
+  </div>
 
 
 	<% end %>
+</div>
+</div>
+</div>
+</div>

@@ -1,20 +1,17 @@
-<h><%= @article.title %></h1>
-
- 
+<h1 style="color:darkblue;"><%= @article.title %></h1>
+<%= image_tag @article.image , :size => "260x180" %>
 <p>
 	<%= @article.description %>
 </p>
 
 <p>
-<strong>Date:</strong>
-<%= @article.date %>
+	<strong>Date:</strong>
+	<%= @article.date %>
 </p>
 
 <p>
-<strong>Day	:</strong>
-<%= @article.day %>
+	<strong>Day	:</strong>
+	<%= @article.day %>
 </p>
-
-
 
  <%= link_to 'back', articles_path %>

@@ -2,3 +2,5 @@
 <h3 style="color: orangered;">Publish your passions, your way </h3>
 
 <%= link_to'Create Your Own Blog',controller: 'articles' %>
+<%= link_to'sign_up', new_client_registration_path%>
+<%= button_to'log_out', destroy_client_session_path , method: :delete%>

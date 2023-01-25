@@ -60,13 +60,13 @@ group :development do
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
-
+  gem 'devise'
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
   gem 'bcrypt'
   gem 'bootstrap-sass'
-
+gem 'devise_token_auth'
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]

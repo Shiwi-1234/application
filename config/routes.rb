@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  get 'articles/index'
-  get 'articles/create'
-  get 'articles/new'
-  get 'articles/show'
+  devise_for :clients
   root "home#index"
   resources :articles
   

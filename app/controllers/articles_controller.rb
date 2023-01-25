@@ -1,24 +1,21 @@
 class  ArticlesController < ApplicationController
-  before_action :set_articles,only: %i[show , edit , update , destroy ]
+  before_action :set_articles,only: %i[show , edit ,  destroy ]
 
   def index
     @articles = Article.all
-      #render json: @articles
-        if params[:search_by_title] && params[:search_by_title] != ""
-      @articles = @articles.where("title like ?","%# {params[:search_by_title]}%")
-    end
+     render json: @articles.to_json(include: { image_attachment: { include: :blob } }) 
   end
-
   
   def new
     @article = Article.new
   end
 
   def show
-    render json: @article
+    render json: @article.to_json(include: { image_attachment: { include: :blob } })
   end
 
   def edit
+    render json: @article
   end
 
   def create
@@ -31,10 +28,10 @@ class  ArticlesController < ApplicationController
   end
 
   def update
+    @article = Article.find(params[:id])
     if @article.update(article_params)
-      redirect_to @articles
-    else
-      render 'edit'
+     render json: @article , status: 200 
+     #redirect_to articles_path
     end 
    end     
 
@@ -45,9 +42,8 @@ class  ArticlesController < ApplicationController
   end
 
 private
-  
   def article_params
-    params.require(:article).permit(:title, :description, :date, :day)
+    params.require(:article).permit(:title, :description, :date, :day, :published , :image)
   end
 
   def set_articles
