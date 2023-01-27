@@ -3,7 +3,7 @@ class  ArticlesController < ApplicationController
 
   def index
     @articles = Article.all
-     render json: @articles.to_json(include: { image_attachment: { include: :blob } }) 
+     render json: @articles
   end
   
   def new
@@ -11,7 +11,7 @@ class  ArticlesController < ApplicationController
   end
 
   def show
-    render json: @article.to_json(include: { image_attachment: { include: :blob } })
+    render json: @article
   end
 
   def edit
@@ -19,31 +19,27 @@ class  ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.new(article_params)
-    if @article.save
-      redirect_to articles_path
-    else
-      render 'new'
-    end   
+    @category = Category.find(params[:category_id])
+    @article = @category.articles.create(article_params)
+      redirect_to category_path(@category)
   end
 
   def update
     @article = Article.find(params[:id])
     if @article.update(article_params)
-     render json: @article , status: 200 
-     #redirect_to articles_path
+     #render json: @article , status: 200 
+     redirect_to articles_path
     end 
    end     
 
   def destroy
-    #@article = Article.find(params[:id])
-    @article.destroy
-      redirect_to articles_path
+     @article.destroy
+     redirect_to articles_path
   end
 
 private
   def article_params
-    params.require(:article).permit(:title, :description, :date, :day, :published , :image)
+    params.require(:article).permit(:title, :description , :published ,:image, :category_id)
   end
 
   def set_articles

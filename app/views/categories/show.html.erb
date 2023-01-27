@@ -1,0 +1,22 @@
+<h1 style="color:darkblue;"><%= @category.name %></h1>
+<%= form_with model: [@category , @category.articles.build] do |form| %>
+
+  <div>
+  	<%= form.label :title %><br>
+		<%= form.text_field :title %>
+  </div>
+
+  <div>
+  	<%= form.label :Decription %><br>
+		<%= form.text_field :description %>
+  </div>
+	
+  <div>
+  	<%= form.label :image %><br>
+		<%= form.file_field :image %>
+  </div><br>
+
+	<div>
+  	<%= form.submit %><br>
+  </div>
+  <% end %>
